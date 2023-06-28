@@ -1,4 +1,5 @@
 import * as React from "react";
+import ArrowDownIcon from "./icons/ArrowDownIcon";
 
 const Dropdown = ({ options, value, onChange }) => {
   const [open, setOpen] = React.useState(false);
@@ -36,19 +37,7 @@ const Dropdown = ({ options, value, onChange }) => {
         onClick={toggleDropdown}
       >
         {selectedOption ? selectedOption.label : "Select an option"}
-        <svg
-          className="w-5 h-5 ml-2 -mr-1"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-          aria-hidden="true"
-        >
-          <path
-            fillRule="evenodd"
-            d="M5.293 7.707a1 1 0 0 1 1.414 0L10 11.586l3.293-3.293a1 1 0 1 1 1.414 1.414l-4 4a1 1 0 0 1-1.414 0l-4-4a1 1 0 0 1 0-1.414z"
-            clipRule="evenodd"
-          />
-        </svg>
+        <ArrowDownIcon />
       </button>
 
       {open && (
