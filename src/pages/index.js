@@ -26,7 +26,7 @@ export default function Home() {
           }}
         />
       </div>
-      {data.length > 0 && <Chart />}
+      {data.length > 0 && <Chart data={data} />}
     </>
   );
 }

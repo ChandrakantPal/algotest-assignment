@@ -1,13 +1,12 @@
-import { useEffect, useRef } from "react";
+import * as React from "react";
 import { createChart, CrosshairMode } from "lightweight-charts";
-import data from "../static/BANKNIFTY2360843500CE(2023-06-01).json";
 import { dataPreparationTradeValueAndVolume } from "@/utils/dataPreparation";
 
-const Chart = () => {
-  const chartContainerRef = useRef(null);
-  const chartInstanceRef = useRef(null);
+const Chart = ({ data }) => {
+  const chartContainerRef = React.useRef(null);
+  const chartInstanceRef = React.useRef(null);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const sanitizedData = dataPreparationTradeValueAndVolume(data);
     chartInstanceRef.current = createChart(chartContainerRef.current, {
       width: "100%",
@@ -32,7 +31,7 @@ const Chart = () => {
     return () => {
       chartInstanceRef.current.remove();
     };
-  }, []);
+  }, [data]);
 
   return <div ref={chartContainerRef} className="w-full" />;
 };
